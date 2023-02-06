@@ -23,7 +23,7 @@
 
     - name: Clone the repository
       git:
-        repo: https://github.com/CeeyIT-Solutions/flask-app.git
+        repo: https://github.com/BOMAURIEL/Flaskapp.git
         dest: /opt/flask-app
      
     - name: Install Flask and its dependencies
@@ -33,6 +33,6 @@
         chdir: /opt/flask-app
 
     - name: Start the Flask App
-      command: /opt/flask-env/bin/python3 /opt/flask-app/app.py
+      command: /opt/flask-env/bin/python3 /opt/flask-app/hello.py
       async: 1
       poll: 0

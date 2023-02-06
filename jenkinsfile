@@ -9,7 +9,7 @@ pipeline {
         
         stage('Starting Ansible') {
             steps {
-      ansiblePlaybook credentialsId: 'fireubuntu', inventory: '/var/lib/jenkins/workspace/jenkins-pipe/hosts', playbook: '/var/lib/jenkins/workspace/jenkins-pipe/deploy.yml'
+      ansiblePlaybook credentialsId: 'fireubuntu', inventory: '/var/lib/jenkins/workspace/jenkins-pipe/hosts.ini', playbook: '/var/lib/jenkins/workspace/jenkins-pipe/deploy.yml'
             }
         }
     }

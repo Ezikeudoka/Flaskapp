@@ -6,12 +6,12 @@ pipeline {
                 checkout([$class: 'GitSCM', branches: [[name: '*/main']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/BOMAURIEL/Flaskapp.git']]])
             }
         }
-        stages {
+        
         stage('Starting Ansible') {
             steps {
       ansiblePlaybook credentialsId: 'fireubuntu', inventory: '/var/lib/jenkins/workspace/jenkins-pipe/hosts', playbook: '/var/lib/jenkins/workspace/jenkins-pipe/deploy.yml'
             }
         }
     }
- }
+ 
 }

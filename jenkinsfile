@@ -1,4 +1,3 @@
-
 pipeline {
     agent any
     stages {
@@ -7,18 +6,12 @@ pipeline {
                 checkout([$class: 'GitSCM', branches: [[name: '*/main']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/BOMAURIEL/Flaskapp.git']]])
             }
         }
-        stage('Deploy') {
+        stages {
+        stage('Starting Ansible') {
             steps {
-                script {
-                    ansiblePlaybook(
-                        playbook: 'deploy.yml',
-                        extraVars: [
-                            g1: 'g1'
-                        ],
-                        inventory: 'hosts.ini'
-                    )
-                }
+      ansiblePlaybook credentialsId: 'fireubuntu', inventory: '/var/lib/jenkins/workspace/jenkins-pipe/hosts', playbook: '/var/lib/jenkins/workspace/jenkins-pipe/deploy.yml'
             }
         }
     }
+ }
 }

@@ -15,6 +15,7 @@
           - python3
           - python3-pip
           - git
+          - pip install flask
 
     - name: Create the destination folder
       file:

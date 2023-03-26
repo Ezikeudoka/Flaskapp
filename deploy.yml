@@ -5,8 +5,26 @@
   tasks:
     - name: Install required packages
       apt:
-        name: "{{ packages }}"
+        name: pip
         state: present
+
+
+    - name: Install required packages
+      pip:
+        name: gunicorn 
+        state: present
+
+    - name: Install required packages
+      apt:
+        name: python3
+        state: present
+
+    - name: Install required packages
+      apt:
+        name: git
+        state: present
+
+
 
     - name: Clone repository
       git:
@@ -44,12 +62,5 @@
         name: gunicorn
         state: restarted
         enabled: yes
-  vars:
-    packages:
-      - pip
-      - git
-      - python3
-      - gunicorn
-      
       
 ... 

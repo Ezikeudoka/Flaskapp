@@ -1,9 +1,10 @@
-from flask import Flask
+from flask import Flask 
 app = Flask(__name__)
 
-@app.route("/")
-def index():
-    return "The suffering is over, Bang!"
+@app.route("/") 
+def hello():
+  return "I am almost a Devops Engineer!"
 
-if __name__ == "__main__":
-    app.run()
+   
+if __name__ == "__main__": 
+ app.run(host='0.0.0.0')

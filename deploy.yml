@@ -1,6 +1,6 @@
 ---
 - name: Deploy Flask app
-  hosts: web
+  hosts: g
   remote_user: root
   
   tasks:
